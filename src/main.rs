@@ -8,5 +8,14 @@ async fn main() {
 
     let data = fs::read_to_string("input/input-1.txt").unwrap();
 
-    println!("Data: {}", data);
+    let mut floor = 0;
+    data.chars().for_each(|c| {
+        match c {
+            '(' => floor += 1,
+            ')' => floor -= 1,
+            _ => ()
+        }
+    });
+
+    println!("Result: {}", floor); // result 138
 }
