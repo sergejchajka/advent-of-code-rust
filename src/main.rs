@@ -6,7 +6,7 @@ use std::io::Read;
 async fn main() {
     println!("Hello, world!");
 
-    let data = fs::read_to_string("input/input-1.txt").unwrap();
+    let data = fs::read_to_string("../data/input.txt").unwrap();
 
     let mut floor = 0;
     data.chars().for_each(|c| {
