@@ -1,21 +1,8 @@
-use reqwest;
-use std::fs;
-use std::io::Read;
+use advent_of_code::year_2015;
 
 #[tokio::main]
 async fn main() {
-    println!("Hello, world!");
-
-    let data = fs::read_to_string("./data/input.txt").unwrap();
-
-    let mut floor = 0;
-    data.chars().for_each(|c| {
-        match c {
-            '(' => floor += 1,
-            ')' => floor -= 1,
-            _ => ()
-        }
-    });
-
-    println!("Result: {}", floor); // result 138
+    let solver = year_2015::day_1::part_1::solve;
+    let input = include_str!("year_2015/day_1/part_1_input.txt");
+    println!("{}", solver(&input));
 }
