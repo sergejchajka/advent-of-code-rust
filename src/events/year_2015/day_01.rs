@@ -43,6 +43,7 @@ fn part_2(input: &str) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::read_input;
 
     #[test]
     fn test_part_1_task_samples() {
@@ -59,13 +60,13 @@ mod tests {
 
     #[test]
     fn test_part_1_task_input() {
-        let input = include_str!("./part_1_input.txt");
-        assert_eq!(part_1(input), 138);
+        let input = read_input(&2015, &1);
+        assert_eq!(part_1(&input), 138);
     }
 
     #[test]
     fn test_part_2_task_input() {
-        let input = include_str!("./part_1_input.txt");
-        assert_eq!(part_2(input), 1771);
+        let input = read_input(&2015, &1);
+        assert_eq!(part_2(&input), 1771);
     }
 }

@@ -1,11 +1,9 @@
-use advent_of_code::events;
 use advent_of_code::events::year_2015::day_01::solve;
+use advent_of_code::read_input;
 
 #[tokio::main]
 async fn main() {
-    // let solver = events::year_2015::part_1::solve;
-    let input = include_str!("events/year_2015/part_1_input.txt");
-    
+    let input = read_input(&2015, &1);
     println!("{:?}", solve(&input));
 
     // let input_line = String::new();
