@@ -1,0 +1,71 @@
+// TODO implement common function interface
+pub fn solve(input: &str) -> (i32, i32) {
+
+    let part_1_result = part_1(input);
+    let part_2_result = part_2(input);
+
+    (part_1_result, part_2_result)
+}
+
+fn part_1(input: &str) -> i32 {
+    let mut floor = 0;
+
+    input.chars().for_each(|c| {
+        match c {
+            '(' => floor += 1,
+            ')' => floor -= 1,
+            _ => ()
+        }
+    });
+
+    floor
+}
+
+fn part_2(input: &str) -> i32 {
+    let mut basement: i32 = -1;
+    let mut floor = 0;
+
+    for (index, c) in input.chars().enumerate() {
+        match c {
+            '(' => floor += 1,
+            ')' => floor -= 1,
+            _ => ()
+        }
+        if floor == -1 {
+            basement = (index + 1) as i32;
+            break;
+        }
+    }
+
+    basement
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_part_1_task_samples() {
+        assert_eq!(part_1("(())"), 0);
+        assert_eq!(part_1("()()"), 0);
+        assert_eq!(part_1("((("), 3);
+        assert_eq!(part_1("(()(()("), 3);
+        assert_eq!(part_1("))((((("), 3);
+        assert_eq!(part_1("())"), -1);
+        assert_eq!(part_1("))("), -1);
+        assert_eq!(part_1(")))"), -3);
+        assert_eq!(part_1(")())())"), -3);
+    }
+
+    #[test]
+    fn test_part_1_task_input() {
+        let input = include_str!("./part_1_input.txt");
+        assert_eq!(part_1(input), 138);
+    }
+
+    #[test]
+    fn test_part_2_task_input() {
+        let input = include_str!("./part_1_input.txt");
+        assert_eq!(part_2(input), 1771);
+    }
+}
