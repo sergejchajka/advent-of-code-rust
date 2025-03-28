@@ -17,18 +17,23 @@ struct Args {
 #[tokio::main]
 async fn main() {
     let args = Args::parse();
-    println!("year: {:?}, day: {:?}", args.year, args.day);
 
-    let input = read_input(&2015, &1);
-    println!("{:?}", events::year_2015::day_01::solve(&input));
+    let registry = get_registry();
 
-    // let input_line = String::new();
-    // let bomb_dir = input_line.trim().to_string();
-    // bomb_dir.chars().for_each(|dir| match dir {
-    //     'U' => (),
-    //     'D' => (),
-    //     'L' => (),
-    //     'R' => (),
-    //     _ => (),
-    // });
+    let solutions: Vec<_> = registry.iter().filter(|(key, _)| 
+        args.year.is_none_or(|y| y == key.0) && args.day.is_none_or(|d| d == key.1)
+    ).collect();
+
+    solutions.iter().for_each(|((year, day), func)| {
+        let input = read_input(year, day);
+        let result = func(&input);
+        println!("y{:?} d{:02?}: {:?}", year, day, result);
+    })
+}
+
+fn get_registry() -> HashMap<(i32, i32), fn(&str) -> (i32, i32)> {
+    let mut map = HashMap::new();
+    map.insert((2015, 1), events::year_2015::day_01::solve as fn(&str) -> (i32, i32));
+    map.insert((2015, 2), events::year_2015::day_02::solve);
+    map
 }
