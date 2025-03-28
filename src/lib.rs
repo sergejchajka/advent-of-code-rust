@@ -8,5 +8,5 @@ pub fn read_input(year: &i32, day: &i32) -> String {
 }
 
 pub fn get_input_path(year: &i32, day: &i32) -> String {
-    format!("inputs/year_{}/day_{:02}.txt", year, day)
+    format!("events_data/year_{}/day_{:02}/input.txt", year, day)
 }

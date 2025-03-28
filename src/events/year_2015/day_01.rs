@@ -65,6 +65,12 @@ mod tests {
     }
 
     #[test]
+    fn test_part_2_task_samples() {
+        assert_eq!(part_2(")"), 1);
+        assert_eq!(part_2("()())"), 5);
+    }
+
+    #[test]
     fn test_part_2_task_input() {
         let input = read_input(&2015, &1);
         assert_eq!(part_2(&input), 1771);

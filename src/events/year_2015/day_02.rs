@@ -47,26 +47,25 @@ mod tests {
 
     #[test]
     fn test_part_1_task_samples() {
-        assert_eq!(part_1("(())"), 0);
-        assert_eq!(part_1("()()"), 0);
-        assert_eq!(part_1("((("), 3);
-        assert_eq!(part_1("(()(()("), 3);
-        assert_eq!(part_1("))((((("), 3);
-        assert_eq!(part_1("())"), -1);
-        assert_eq!(part_1("))("), -1);
-        assert_eq!(part_1(")))"), -3);
-        assert_eq!(part_1(")())())"), -3);
+        assert_eq!(part_1("2x3x4"), 58);
+        assert_eq!(part_1("1x1x10"), 43);
     }
 
     #[test]
     fn test_part_1_task_input() {
-        let input = read_input(&2015, &1);
-        assert_eq!(part_1(&input), 138);
+        let input = read_input(&2015, &2);
+        assert_eq!(part_1(&input), 1598415);
+    }
+
+    #[test]
+    fn test_part_2_task_samples() {
+        assert_eq!(part_2("2x3x4"), 34);
+        assert_eq!(part_2("1x1x10"), 14);
     }
 
     #[test]
     fn test_part_2_task_input() {
-        let input = read_input(&2015, &1);
-        assert_eq!(part_2(&input), 1771);
+        let input = read_input(&2015, &2);
+        assert_eq!(part_2(&input), 3812909);
     }
 }
