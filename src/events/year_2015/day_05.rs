@@ -44,8 +44,29 @@ fn part_1(input: &str) -> i32 {
 }
 
 fn part_2(input: &str) -> i32 {
-    let result = -1;
+    fn has_letters_pair(line: &str) -> bool {
+        let mut line = line;
+        for i in 0..line.len() - 3 {
+            let (left, right) = line.split_at(i+2);
+            if right.contains(left.split_at(left.len() - 2).1) {
+                return true;
+            }
+        }
+        false
+    }
+    fn has_repeated_letters(line: &str) -> bool {
+        let chars: Vec<_> = line.chars().collect();
+        for i in 0..chars.len() - 2 {
+            if chars[i] == chars[i+2] {
+                return true;
+            }
+        }
+        false
+    }
 
+    let result = input.lines().filter(|line| {
+        return has_letters_pair(line) && has_repeated_letters(line);
+    }).count() as i32;
     result
 }
 
@@ -71,13 +92,15 @@ mod tests {
 
     #[test]
     fn test_part_2_task_samples() {
-        assert_eq!(0, part_2("abcdef"));
-        assert_eq!(0, part_2("pqrstuv"));
+        assert_eq!(1, part_2("qjhvhtzxzqqjkmpb"));
+        assert_eq!(1, part_2("xxyxx"));
+        assert_eq!(0, part_2("uurcxstgmygtbstg"));
+        assert_eq!(0, part_2("ieodomkazucvgmuy"));
     }
 
     #[test]
     fn test_part_2_task_input() {
         let input = read_input(&2015, &5);
-        assert_eq!(0, part_2(&input));
+        assert_eq!(69, part_2(&input));
     }
 }
