@@ -7,12 +7,12 @@ pub fn solve(input: &str) -> (i32, i32) {
     (part_1_result, part_2_result)
 }
 
-fn part_1(input: &str) -> i32 {
-    -1
+fn part_1(_input: &str) -> i32 {
+    todo!()
 }
 
-fn part_2(input: &str) -> i32 {
-    -1
+fn part_2(_input: &str) -> i32 {
+    todo!()
 }
 
 #[cfg(test)]

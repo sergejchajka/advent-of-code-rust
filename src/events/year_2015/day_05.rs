@@ -45,7 +45,7 @@ fn part_1(input: &str) -> i32 {
 
 fn part_2(input: &str) -> i32 {
     fn has_letters_pair(line: &str) -> bool {
-        let mut line = line;
+        let line = line;
         for i in 0..line.len() - 3 {
             let (left, right) = line.split_at(i+2);
             if right.contains(left.split_at(left.len() - 2).1) {
