@@ -93,7 +93,7 @@ impl Sub for Dial {
 
 #[cfg(test)]
 mod tests {
-    use crate::events::year_2025::dial::Dial;
+    use crate::events::year_2025::day_01::dial::Dial;
     use crate::events::year_2025::RotationDirection::{Left, Right};
 
     #[test]

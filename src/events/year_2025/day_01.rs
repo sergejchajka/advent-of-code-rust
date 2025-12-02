@@ -1,6 +1,8 @@
 use std::ops::{Add, AddAssign, Sub, SubAssign};
 use crate::events::year_2025::Dial;
 
+pub mod dial;
+
 // TODO implement common function interface
 pub fn solve(input: &str) -> (i32, i32) {
     let part_1_result = part_1(input, false);
