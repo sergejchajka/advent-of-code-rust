@@ -1,5 +1,5 @@
 // TODO implement common function interface
-pub fn solve(input: &str) -> (i32, i32) {
+pub fn solve(input: &str) -> (i64, i64) {
 
     let part_1_result = part_1(input);
     let part_2_result = part_2(input);
@@ -7,7 +7,7 @@ pub fn solve(input: &str) -> (i32, i32) {
     (part_1_result, part_2_result)
 }
 
-fn part_1(input: &str) -> i32 {
+fn part_1(input: &str) -> i64 {
     let mut floor = 0;
 
     input.chars().for_each(|c| {
@@ -21,8 +21,8 @@ fn part_1(input: &str) -> i32 {
     floor
 }
 
-fn part_2(input: &str) -> i32 {
-    let mut basement: i32 = -1;
+fn part_2(input: &str) -> i64 {
+    let mut basement: i64 = -1;
     let mut floor = 0;
 
     for (index, c) in input.chars().enumerate() {
@@ -32,7 +32,7 @@ fn part_2(input: &str) -> i32 {
             _ => ()
         }
         if floor == -1 {
-            basement = (index + 1) as i32;
+            basement = (index + 1) as i64;
             break;
         }
     }

@@ -31,9 +31,12 @@ async fn main() {
     })
 }
 
-fn get_registry() -> HashMap<(i32, i32), fn(&str) -> (i32, i32)> {
+fn get_registry() -> HashMap<(i32, i32), fn(&str) -> (i64, i64)> {
     let mut map = HashMap::new();
-    map.insert((2015, 1), events::year_2015::day_01::solve as fn(&str) -> (i32, i32));
+    map.insert((2015, 1), events::year_2015::day_01::solve as fn(&str) -> (i64, i64));
     map.insert((2015, 2), events::year_2015::day_02::solve);
+    
+    map.insert((2025, 1), events::year_2025::day_01::solve);
+    map.insert((2025, 2), events::year_2025::day_02::solve);
     map
 }

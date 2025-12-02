@@ -1,17 +1,16 @@
-use std::ops::{Add, AddAssign, Sub, SubAssign};
 use crate::events::year_2025::Dial;
 
 pub mod dial;
 
 // TODO implement common function interface
-pub fn solve(input: &str) -> (i32, i32) {
+pub fn solve(input: &str) -> (i64, i64) {
     let part_1_result = part_1(input, false);
     let part_2_result = part_2(input, false);
 
     (part_1_result, part_2_result)
 }
 
-fn part_1(input: &str, debug: bool) -> i32 {
+fn part_1(input: &str, debug: bool) -> i64 {
     let mut zero_times = 0;
     let mut dial = Dial::default();
 
@@ -41,7 +40,7 @@ fn part_1(input: &str, debug: bool) -> i32 {
 
 
 #[warn(unused)]
-fn part_2(input: &str, debug: bool) -> i32 {
+fn part_2(input: &str, debug: bool) -> i64 {
     let mut dial = Dial::default();
     input.lines().for_each(|line| {
         let line = line.trim();
@@ -57,7 +56,7 @@ fn part_2(input: &str, debug: bool) -> i32 {
         }
     });
 
-    dial.zero_crossed as i32
+    dial.zero_crossed as i64
 }
 
 #[cfg(test)]
