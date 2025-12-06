@@ -9,6 +9,12 @@ pub fn read_input(year: &i32, day: &i32) -> String {
         .to_string()
 }
 
+pub fn read_input_raw(year: &i32, day: &i32) -> String {
+    fs::read_to_string(get_input_path(year, day))
+        .expect("Failed to read input file")
+        .to_string()
+}
+
 pub fn get_input_path(year: &i32, day: &i32) -> String {
     format!("data/year_{}/day_{:02}/input.txt", year, day)
 }
