@@ -1,6 +1,6 @@
 use crate::events::year_2025::day_04::matrix::{Matrix, Point};
 
-mod matrix;
+pub mod matrix;
 
 // TODO implement common function interface
 pub fn solve(input: &str) -> (i64, i64) {
@@ -38,14 +38,14 @@ fn part_2(input: &str, _debug: bool) -> i64 {
                 if matrix.get(x, y) == '.' { continue; }
 
                 if matrix.count_adjacent_items_count(x, y, '@') < 4 {
-                    rolls_to_remove.push(Point { x: x as i32, y: y as i32 });
+                    rolls_to_remove.push(Point { x, y });
                 }
             }
         }
 
         if rolls_to_remove.len() == 0 { break 'remove_loop; }
         total_removed += rolls_to_remove.len();
-        rolls_to_remove.iter().for_each(|p| matrix.replace(p.x as usize, p.y as usize, '.'));
+        rolls_to_remove.iter().for_each(|p| matrix.replace(p.x, p.y, '.'));
     }
 
     total_removed as i64

@@ -1,12 +1,12 @@
+#[derive(Debug)]
 pub struct Matrix {
     pub width: usize,
     pub height: usize,
     data: Vec<Vec<char>>,
 }
-
 pub struct Point {
-    pub x: i32,
-    pub y: i32,
+    pub x: usize,
+    pub y: usize,
 }
 
 impl Matrix {
@@ -26,6 +26,10 @@ impl Matrix {
 
     pub fn get(&self, x: usize, y: usize) -> char {
         self.data[y][x]
+    }
+
+    pub(crate) fn get_line(&self, y: usize) -> Vec<char> {
+        self.data[y].clone()
     }
 
     pub fn replace(&mut self, x: usize, y: usize, item: char) {
@@ -51,6 +55,13 @@ impl Matrix {
             }
         }
         count
+    }
+
+    pub fn print(&self) {
+        let result = self.data.iter()
+            .map(|row| row.iter().cloned().collect::<String>() + "\n")
+            .collect::<String>();
+        print!("{}", result);
     }
 }
 
