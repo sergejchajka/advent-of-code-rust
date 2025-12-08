@@ -51,57 +51,6 @@ fn part_2(input: &str, _debug: bool) -> i64 {
     total_removed as i64
 }
 
-fn check_joltage_rating_part_2(batteries_range: &str) -> i64 {
-    let mut numbers = batteries_range.chars().map(|x| x.to_digit(10).unwrap()).collect::<Vec<u32>>();
-
-    let mut index = 0;
-
-    // dbg!(batteries_range);
-    'switch_loop: loop {
-        if numbers[index] < numbers[index+1] {
-            numbers.remove(index);
-            if index > 0 { index -= 1;}
-            // check the same index in the next loop
-            // dbg!(numbers.iter().map(|n| n.to_string()).collect::<String>(), index);
-        } else {
-            index += 1;
-        }
-
-        if numbers.len() == index + 1 {
-            numbers = numbers.iter().take(12).cloned().collect();
-            break 'switch_loop;
-        }
-
-        if numbers.len() == 12 {
-            break 'switch_loop;
-        }
-    }
-
-    // 'switch_loop: loop {
-    //     if index == numbers.len() {
-    //         index = 0;
-    //         battery_to_switch = numbers.iter().min().unwrap().clone();
-    //     }
-    //
-    //     if numbers[index] == battery_to_switch {
-    //         numbers.remove(index);
-    //         // check the same index in the next loop
-    //     } else {
-    //         index += 1;
-    //     }
-    //
-    //     if numbers.len() == 12 {
-    //         break 'switch_loop;
-    //     }
-    // }
-
-    numbers.into_iter()
-        .map(|n| n.to_string())
-        .collect::<String>()
-        .parse::<i64>()
-        .unwrap()
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;

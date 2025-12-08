@@ -1,5 +1,4 @@
-use std::ops::RangeInclusive;
-use crate::events::year_2025::matrix::{Matrix, Point};
+use crate::events::year_2025::matrix::{Matrix};
 
 // TODO implement common function interface
 pub fn solve(input: &str) -> (i64, i64) {
@@ -70,10 +69,7 @@ fn part_2(input: &str, _debug: bool) -> i64 {
 
     pipe_matrix.last().unwrap().iter().sum()
 }
-// ...|.|.|||.|...
-// ..|^|^|||^|^|..
-// pipes: 0, 0, 0, 1, 0, 4, 0, 3, 3, 1, 0, 1, 0, 0, 0,
-// pipes: 0, 0, 1, 0, 5, 0, 4, 3, 7, ^, 2, ^, 1, 0, 0,
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -137,68 +133,5 @@ mod tests {
 
         let input = read_input_raw(&YEAR, &DAY);
         assert_eq!(part_2(&input, false), 32982105837605);
-    }
-}
-
-#[derive(Debug)]
-pub struct MatrixDig {
-    pub width: usize,
-    pub height: usize,
-    data: Vec<Vec<i64>>,
-}
-
-impl MatrixDig {
-
-    // pub fn from_input(input: &str) -> Self {
-    //     let mut data: Vec<Vec<char>> = Vec::new();
-    //     input.lines().for_each( |line| data.push(line.chars().collect()));
-    //     let width = data[0].len();
-    //     let height = data.len();
-    //
-    //     Self {
-    //         width,
-    //         height,
-    //         data,
-    //     }
-    // }
-
-    pub fn get(&self, x: usize, y: usize) -> i64 {
-        self.data[y][x]
-    }
-
-    pub(crate) fn get_line(&self, y: usize) -> Vec<i64> {
-        self.data[y].clone()
-    }
-
-    pub fn replace(&mut self, x: usize, y: usize, item: i64) {
-        self.data[y][x] = item
-    }
-
-    // pub fn count_adjacent_items_count(&self, x: usize, y: usize, item: char) -> usize {
-    //     let mut count = 0;
-    //     for dx in -1..=1 {
-    //         for dy in -1..=1 {
-    //             // skip itself
-    //             if dx == 0 && dy == 0 { continue; }
-    //
-    //             let nx = x as i32 + dx;
-    //             let ny = y as i32 + dy;
-    //
-    //             // skip out of bounds
-    //             if nx < 0 || nx >= self.width as i32 { continue; }
-    //             // skip out of bounds
-    //             if ny < 0 || ny >= self.height as i32 { continue; }
-    //
-    //             count += if self.data[ny as usize][nx as usize] == item { 1 } else { 0 };
-    //         }
-    //     }
-    //     count
-    // }
-
-    pub fn print(&self) {
-        let result = self.data.iter()
-            .map(|row| row.iter().cloned().map(|n| n.to_string()).collect::<String>() + "\n")
-            .collect::<String>();
-        println!("{}", result);
     }
 }

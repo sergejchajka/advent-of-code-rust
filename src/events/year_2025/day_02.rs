@@ -23,7 +23,6 @@ fn part_2(input: &str, _debug: bool) -> i64 {
 }
 
 fn check_ids_range_part_1(range: &str) -> Vec<i64> {
-    // dbg!(range, range.split('-').collect::<Vec<&str>>());
     let [from, to] = range
         .split('-')
         .map(|x| x.parse::<i64>().unwrap())
@@ -45,7 +44,6 @@ fn check_ids_range_part_1(range: &str) -> Vec<i64> {
 }
 
 fn check_ids_range_part_2(range: &str) -> Vec<i64> {
-    // dbg!(range, range.split('-').collect::<Vec<&str>>());
     let [from, to] = range
         .split('-')
         .map(|x| x.parse::<i64>().unwrap())

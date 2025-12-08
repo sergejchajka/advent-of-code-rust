@@ -38,5 +38,11 @@ fn get_registry() -> HashMap<(i32, i32), fn(&str) -> (i64, i64)> {
     
     map.insert((2025, 1), events::year_2025::day_01::solve);
     map.insert((2025, 2), events::year_2025::day_02::solve);
+    map.insert((2025, 3), events::year_2025::day_03::solve);
+    map.insert((2025, 4), events::year_2025::day_04::solve);
+    map.insert((2025, 5), events::year_2025::day_05::solve);
+    map.insert((2025, 6), events::year_2025::day_06::solve);
+    map.insert((2025, 7), events::year_2025::day_07::solve);
+    map.insert((2025, 8), events::year_2025::day_08::solve);
     map
 }

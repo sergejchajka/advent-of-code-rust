@@ -1,6 +1,7 @@
 use std::fs;
 
 pub mod events;
+mod util;
 
 pub fn read_input(year: &i32, day: &i32) -> String {
     fs::read_to_string(get_input_path(year, day))

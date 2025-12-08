@@ -28,10 +28,6 @@ impl Matrix {
         self.data[y][x]
     }
 
-    pub(crate) fn get_line(&self, y: usize) -> Vec<char> {
-        self.data[y].clone()
-    }
-
     pub fn replace(&mut self, x: usize, y: usize, item: char) {
         self.data[y][x] = item
     }

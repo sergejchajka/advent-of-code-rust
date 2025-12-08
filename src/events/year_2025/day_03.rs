@@ -52,13 +52,10 @@ fn check_joltage_rating_part_2(batteries_range: &str) -> i64 {
 
     let mut index = 0;
 
-    // dbg!(batteries_range);
     'switch_loop: loop {
         if numbers[index] < numbers[index+1] {
             numbers.remove(index);
             if index > 0 { index -= 1;}
-            // check the same index in the next loop
-            // dbg!(numbers.iter().map(|n| n.to_string()).collect::<String>(), index);
         } else {
             index += 1;
         }

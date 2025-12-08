@@ -1,5 +1,3 @@
-use std::ops::RangeInclusive;
-
 // TODO implement common function interface
 pub fn solve(input: &str) -> (i64, i64) {
     let part_1_result = part_1(input, false);
@@ -36,9 +34,7 @@ fn part_1(input: &str, _debug: bool) -> i64 {
 
 fn part_2(input: &str, _debug: bool) -> i64 {
     let lines = input.lines().into_iter().collect::<Vec<&str>>();
-    dbg!(input);
     let (operations, numbers) = lines.split_last().unwrap();
-    dbg!(operations.len(), numbers.iter().map(|it| it.len()).collect::<Vec<usize>>());
     let mut total = 0 as i64;
     let mut last_operation  = ' ';
     let mut tmp_results:Vec<i64> = Vec::new();
@@ -59,7 +55,6 @@ fn part_2(input: &str, _debug: bool) -> i64 {
                 tmp_results.push(String::from_iter(str.clone()).parse::<i64>().unwrap())
             }
             if str.is_empty() || is_the_end {
-                dbg!(operation, &tmp_results);
                 total += match last_operation {
                     '*' => tmp_results.iter()
                         .fold(1, |acc, next| acc * next),
