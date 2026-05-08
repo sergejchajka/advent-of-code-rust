@@ -40,8 +40,11 @@ mod tests {
         assert_eq!(factorise(3), vec![3]);
         assert_eq!(factorise(2), vec![2]);
         assert_eq!(factorise(1), vec![1]);
+    }
 
-        assert_eq!(factorise(570), vec![1]);
+    #[test]
+    fn test_factorise_beltmatick() {
+        assert_eq!(factorise(698), vec![2, 349]);
     }
 
 }

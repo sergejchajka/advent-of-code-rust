@@ -1,4 +1,3 @@
-use crate::events::year_2025::matrix::Matrix;
 use crate::util::board::Board;
 use crate::util::point_3d::Point3D;
 
@@ -91,8 +90,6 @@ fn part_2(input: &str, _debug: bool) -> i64 {
             return p1.x * p2.x;
         }
     }
-
-    panic!("Not all boxes connected");
 }
 
 #[cfg(test)]
@@ -194,9 +191,9 @@ impl MatrixDig {
         self.data[y][x]
     }
 
-    pub(crate) fn get_line(&self, y: usize) -> Vec<i64> {
-        self.data[y].clone()
-    }
+    // pub(crate) fn get_line(&self, y: usize) -> Vec<i64> {
+    //     self.data[y].clone()
+    // }
 
     pub fn replace(&mut self, x: usize, y: usize, item: i64) {
         self.data[y][x] = item
