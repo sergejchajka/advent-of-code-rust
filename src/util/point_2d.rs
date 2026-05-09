@@ -7,9 +7,9 @@ pub struct Point2D {
 }
 
 impl Point2D {
-    pub fn new(x: i64, y: i64) -> Self {
-        Self { x, y }
-    }
+    // pub fn new(x: i64, y: i64) -> Self {
+    //     Self { x, y }
+    // }
 
     pub fn euclidean_distance(&self, other: &Point2D) -> f64 {
         let distance = ((
