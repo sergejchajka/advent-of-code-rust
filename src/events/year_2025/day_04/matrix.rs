@@ -4,9 +4,16 @@ pub struct Matrix {
     pub height: usize,
     data: Vec<Vec<char>>,
 }
-pub struct Point {
-    pub x: usize,
-    pub y: usize,
+
+impl Matrix {
+    pub(crate) fn new(width: usize, height: usize) -> Self {
+        let data: Vec<Vec<char>> = (0..height).map(|_| vec!['.'; width]).collect();
+        Self {
+            width,
+            height,
+            data,
+        }
+    }
 }
 
 impl Matrix {
@@ -59,6 +66,11 @@ impl Matrix {
             .collect::<String>();
         print!("{}", result);
     }
+}
+
+pub struct Point {
+    pub x: usize,
+    pub y: usize,
 }
 
 #[cfg(test)]

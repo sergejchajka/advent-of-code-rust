@@ -1,5 +1,6 @@
 use crate::util::math::round;
 
+#[derive(Debug, Eq, PartialEq, Clone)]
 pub struct Point2D {
     pub x: i64,
     pub y: i64,
@@ -10,7 +11,7 @@ impl Point2D {
     //     Self { x, y }
     // }
 
-    pub fn euclidean_distance(&self, other: Point2D) -> f64 {
+    pub fn euclidean_distance(&self, other: &Point2D) -> f64 {
         let distance = ((
             (other.x - self.x).pow(2) +
             (other.y - self.y).pow(2)
@@ -29,6 +30,6 @@ mod tests {
         let point1 = Point2D { x: 4, y: 1 };
         let point2 = Point2D { x: 3, y: 0 };
 
-        assert_eq!(point1.euclidean_distance(point2), 1.41421_f64)
+        assert_eq!(point1.euclidean_distance(&point2), 1.41421_f64)
     }
 }
